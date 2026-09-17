@@ -1,0 +1,75 @@
+root {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  color: #d9ffff;
+  background: #01070b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #01070b;
+}
+
+.wormhole-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-width: 320px;
+  min-height: 320px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.wormhole-container::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  content: '';
+  background: radial-gradient(circle at center, transparent 42%, rgba(0, 3, 7, 0.38) 100%);
+}
+
+.wormhole-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  color: #b8ffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 600ms ease;
+  text-shadow: 0 0 16px #00efff;
+}
+
+@media (max-width: 640px) {
+  #loading {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+  }
+}
+
